@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Houda ES-SEYOURI - Marketing Digital & Stratégie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+serif:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf8;
+    --bg-warm: #F5F3EF;
+    --ink: #1A1A1A;
+    --ink-light: #4A4A4A;
+    --ink-muted: #8A8A8A;
+    --accent: #D3523C;
+    --accent-light: #F1C5BB;
+    --border: #E0DDD8;
+    --border-light: #EFEDEA;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Calibri Light', -apple-system, BlinkMacSystemFont, sans-serif;
+    --serif: 'JetBrains serif', serifspace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: white;
+  }
+
+  /* ---------- NAVIGATION ---------- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250, 250, 248, 0.92);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--accent);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-decoration: none;
+    position: relative;
+    padding: 4px 0;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 1.5px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--ink);
+  }
+
+  .nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+  }
+
+  .nav-links a.active {
+    color: var(--ink);
+  }
+
+  .nav-cta {
+    font-family: var(--sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--ink-muted);
+    color: var(--bg);
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 768px) {
+    .nav-inner { padding: 0 20px; }
+    .nav-links { display: flex; gap: 16px; overflow-x: auto; font-size: 0.7rem; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 40px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-label {
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--ink-light);
+    max-width: 520px;
+    margin-bottom: 40px;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .hero-meta span {
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  .hero-right {
+    position: relative;
+  }
+
+  .hero-card {
+    background: var(--ink-muted);
+    color: var(--bg);
+    padding: 48px 40px;
+    border-radius: 16px;
+    position: relative;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -12px; left: -12px;
+    right: 12px; bottom: 12px;
+    border: 1px solid var(--accent);
+    border-radius: 16px;
+    z-index: -1;
+  }
+
+  .hero-card-label {
+    font-family: var(--serif);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .hero-card-stat {
+    font-family: var(--serif);
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .hero-card-desc {
+    font-size: 0.85rem;
+    color: rgba(250, 250, 248, 0.7);
+    margin-bottom: 32px;
+  }
+
+  .hero-card-divider {
+    height: 1px;
+    background: rgba(250, 250, 248, 0.15);
+    margin: 24px 0;
+  }
+
+  .hero-card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(250, 250, 248, 0.1);
+  }
+
+  .hero-card-row:last-child {
+    border-bottom: none;
+  }
+
+  .hero-card-row span:first-child {
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    color: rgba(250, 250, 248, 0.65);
+    letter-spacing: 0.04em;
+  }
+
+  .hero-card-row span:last-child {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 60px; }
+    .hero { padding: 100px 24px 60px; }
+  }
+
+  /* ---------- SECTIONS COMMON ---------- */
+  section { padding: 120px 40px; position: relative; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-header { margin-bottom: 64px; }
+
+  .section-eyebrow {
+    font-family: var(--serif);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-eyebrow::before { display: none; }
+
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: 600px;
+  }
+
+  .section-desc {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--ink-light);
+    max-width: 560px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 768px) { section { padding: 80px 24px; } }
+
+  /* ---------- PHILOSOPHY ---------- */
+  .philosophy { background: var(--bg-warm); }
+  .philosophy-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 80px; align-items: start; }
+  .philosophy-quote {
+    font-family: var(--serif);
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 500;
+    line-height: 1.35;
+    font-style: italic;
+    color: var(--ink);
+    padding-left: 24px;
+    border-left: 3px solid var(--accent);
+  }
+  .philosophy-body { font-size: 1.05rem; font-weight: 300; color: var(--ink-light); line-height: 1.8; }
+  .philosophy-body p { margin-bottom: 20px; }
+  .philosophy-body strong { color: var(--ink); font-weight: 500; }
+  @media (max-width: 900px) { .philosophy-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* ---------- PROJECTS ---------- */
+  .projects { background: var(--bg); }
+  .project-list { display: flex; flex-direction: column; gap: 16px; }
+  .project-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    background: var(--bg);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .project-item:hover {
+    border-color: var(--border);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+  }
+  .project-num {
+    background: var(--ink-muted);
+    color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-style: italic;
+  }
+  .project-content { padding: 40px 48px; }
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+  .project-title { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .project-tag { font-family: var(--serif); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); padding: 4px 10px; border: 1px solid var(--border); border-radius: 4px; }
+  .project-hook { font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 20px; line-height: 1.5; }
+  .project-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .project-detail h4 { font-family: var(--serif); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+  .project-detail p { font-size: 0.9rem; font-weight: 300; color: var(--ink-light); line-height: 1.7; }
+  .project-detail .impact-stat { font-family: var(--serif); font-size: 1.8rem; font-weight: 600; color: var(--accent); line-height: 1.2; margin-bottom: 6px; }
+  .project-detail .impact-label { font-size: 0.8rem; color: var(--ink-muted); }
+
+  @media (max-width: 900px) {
+    .project-item { grid-template-columns: 1fr; }
+    .project-num { padding: 16px; justify-content: flex-start; }
+    .project-content { padding: 28px; }
+    .project-details { grid-template-columns: 1fr; gap: 20px; }
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills { background: var(--bg-warm); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border-radius: 16px; overflow: hidden; }
+  .skill-card { background: var(--bg); padding: 40px 36px; transition: all 0.3s ease; }
+  .skill-card:hover { background: var(--bg-warm); }
+  .skill-card.featured { background: var(--ink-muted); color: var(--bg-); grid-column: span 2; }
+  .skill-card.featured .skill-title { color: var(--bg); }
+  .skill-card.featured .skill-desc { color: rgba(250, 250, 248, 0.7); }
+  .skill-tag { font-family: var(--serif); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); padding: 4px 10px; border-radius: 4px; display: inline-block; margin-bottom: 16px; }
+  .skill-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 800; color: var(--accent); margin-bottom: 12px; }
+  .skill-desc { font-size: 0.9rem; font-weight: 300; color: var(--ink-light); line-height: 1.7; }
+  .skill-list { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-list span { font-family: var(--serif); font-size: 0.7rem; color: var(--ink-muted); padding: 5px 12px; background: var(--bg-warm); border-radius: 4px; }
+  .skill-card.featured .skill-list span { background: rgba(250, 250, 248, 0.1); color: rgba(250, 250, 248, 0.7); }
+
+  @media (max-width: 900px) {
+    .skills-grid { grid-template-columns: 1fr; }
+    .skill-card.featured { grid-column: span 1; }
+  }
+
+  /* ---------- TOOLS & LANGUAGES ---------- */
+  .tools-section { margin-top: 60px; }
+  .tools-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+  .tool-chip { font-family: var(--serif); font-size: 0.75rem; color: var(--ink-light); padding: 8px 16px; border: 1px solid var(--border); border-radius: 6px; }
+  .lang-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); border-radius: 12px; overflow: hidden; }
+  .lang-item { background: var(--bg); padding: 28px 20px; text-align: center; }
+  .lang-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .lang-level { font-family: var(--serif); font-size: 0.7rem; color: var(--ink-muted); }
+
+  @media (max-width: 600px) { .lang-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---------- ABOUT ---------- */
+  .about { background: var(--bg); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+  .about-card { background: var(--ink-muted); color: var(--bg); padding: 48px 40px; border-radius: 16px; position: sticky; top: 100px; }
+  .about-card-label { font-family: var(--serif); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+  .about-card-name { font-family: var(--serif); font-size: 2rem; font-weight: 600; margin-bottom: 6px; }
+  .about-card-role { font-size: 0.9rem; color: rgba(250, 250, 248, 0.6); margin-bottom: 24px; }
+  .about-card-bio { font-size: 0.95rem; line-height: 1.8; color: rgba(250, 250, 248, 0.8); }
+
+  .about-body h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; margin-bottom: 20px; }
+  .about-body p { font-size: 1.05rem; font-weight: 300; color: var(--ink-light); line-height: 1.8; margin-bottom: 20px; }
+  .about-body strong { color: var(--ink); font-weight: 500; }
+  .about-hobbies { margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border-light); }
+  .about-hobbies h4 { font-family: var(--serif); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  .hobby-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .hobby-item { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--bg-warm); border-radius: 8px; font-size: 0.9rem; color: var(--ink-light); }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } .about-card { position: static; } }
+
+  /* ---------- CTA ---------- */
+  .cta { background: var(--ink-muted); color: var(--bg); text-align: center; padding: 140px 40px; position: relative; }
+  .cta-inner { max-width: 700px; margin: 0 auto; }
+  .cta-eyebrow { font-family: var(--serif); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
+  .cta h2 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; line-height: 1.15; margin-bottom: 24px; }
+  .cta p { font-size: 1.1rem; font-weight: 300; color: rgba(250, 250, 248, 0.7); margin-bottom: 40px; line-height: 1.7; }
+  .cta-button { display: inline-flex; align-items: center; gap: 12px; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; padding: 16px 36px; border-radius: 8px; text-decoration: none; transition: all 0.3s ease; }
+  .cta-button:hover { background: var(--accent); color: white; transform: translateY(-2px); }
+  .cta-links { margin-top: 48px; display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+  .cta-links a { font-family: var(--serif); font-size: 0.75rem; color: rgba(250, 250, 248, 0.5); text-decoration: none; }
+  .cta-links a:hover { color: var(--bg); }
+
+  footer { background: var(--ink-muted); color: rgba(250, 250, 248, 0.5); text-align: center; padding: 32px; font-family: var(--serif); font-size: 0.7rem; border-top: 1px solid rgba(250, 250, 248, 0.15); }
+
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Houda <span>ES-SEYOURI</span></a>
+    <ul class="nav-links">
+      <li><a href="#philosophy" class="nav-link">Philosophie</a></li>
+      <li><a href="#projects" class="nav-link">Projets</a></li>
+      <li><a href="#skills" class="nav-link">Compétences</a></li>
+      <li><a href="#education" class="nav-link">Parcours</a></li>
+      <li><a href="#experience" class="nav-link">Expérience</a></li>
+      <li><a href="#about" class="nav-link">Profil</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-left reveal">
+      <div class="hero-label">Portfolio 2026</div>
+      <h1>Je ne vends pas des idées.<br>Je les <em>rends viables.</em></h1>
+      <p class="hero-sub">Entre un reporting SAP chez Coca-Cola et une salle de pitch devant jury, j'apprends vite, j'exécute vite, et je fais tenir debout ce que d'autres ont imaginé. Marketing digital, stratégie, coordination d'équipe : la même rigueur, quel que soit le format.</p>
+      <div class="hero-meta">
+        <span>SEO/SEA</span>
+        <span>Social Media</span>
+        <span>Content Creation & Strategy</span>
+        <span>Data Analytics</span>
+        <span>Pack Office</span>
+        <span>SAP Logistics</span>
+        <span>Notion/Trello</span>
+        <span>Canva/Figma</span>
+      </div>
+    </div>
+    <div class="hero-right reveal">
+      <div class="hero-card">
+        <div class="hero-card-label">Chiffres clés</div>
+        <div class="hero-card-stat">15 SKUs</div>
+        <div class="hero-card-desc">pilotés en reporting hebdomadaire via SAP Logistique</div>
+        <div class="hero-card-divider"></div>
+        <div class="hero-card-row"><span>Prospects qualifiés</span><span>145</span></div>
+        <div class="hero-card-row"><span>Taux conversion</span><span>15 %</span></div>
+        <div class="hero-card-row"><span>CA généré Aghbal</span><span>7 000 DH</span></div>
+        <div class="hero-card-row"><span>Équipe managée</span><span>22 pers.</span></div>
+        <div class="hero-card-row"><span>Dossiers soutenus jury</span><span>+5</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHIE -->
+<section class="philosophy" id="philosophy">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Ma philosophie</div>
+      <h2 class="section-title">La stratégie ne vaut que si elle survit au contact du réel.</h2>
+    </div>
+    <div class="philosophy-grid">
+      <div class="philosophy-quote reveal">
+        « On m'a confié des idées qui n'étaient pas les miennes : une caroube sans débouché, une friperie sans photographe. Mon travail est de leur trouver un public. »
+      </div>
+      <div class="philosophy-body reveal">
+        <p>Le marketing digital qu'on m'a appris dans les livres et celui que j'ai pratiqué sur le terrain ne se ressemblent pas. Sur le terrain, il n'y a pas de brief parfait : il y a une coéquipière qui part en plein milieu du projet et qu'il faut remplacer en urgence, un stock de caroube que des familles ne savent pas monétiser, une compétition dans trois semaines et zéro support visuel.</p>
+        <p><strong>Je préfère un benchmark qui débouche sur une vraie décision à une présentation impeccable qui ne sert à personne,</strong> et un chiffre modeste mais vérifiable à une promesse en l'air. C'est ce qui s'est passé sur Baluxe, sur Aghbal, et sur chaque dossier que j'ai soutenu devant jury.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--PROJETS-->
+<section class="projects" id="projects">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Projets à la une</div>
+      <h2 class="section-title">Ce que j'ai construit, chiffré, défendu.</h2>
+      <p class="section-desc">Sept dossiers. Des résultats vérifiables. Pas de jargon, pas de promesses en l'air.</p>
+    </div>
+
+    <div class="project-list">
+      <article class="project-item reveal">
+        <div class="project-num">01</div>
+        <div class="project-content">
+          <div class="project-header">
+            <div>
+              <h3 class="project-title">Baluxe</h3>
+              <span class="project-tag">Friperie digitale - Co-fondatrice</span>
+            </div>
+            <span class="project-tag">Repris en cours</span>
+          </div>
+          <p class="project-hook">Le jour où la personne en charge du projet est partie, sans transition.</p>
+          <div class="project-details">
+            <div class="project-detail">
+              <h4>Le Défi</h4>
+              <p>L'industrie textile pèse 10 % des émissions mondiales. Modèle de friperie digitale avec départ imprévu de l'opérationnelle en cours de route.</p>
+            </div>
+            <div class="project-detail">
+              <h4>L'Exécution</h4>
+              <p>Reprise seule de l'étude de marché, du benchmark, de la recherche de sponsors et de la direction photo pour fixer la charte Instagram/TikTok.</p>
+            </div>
+            <div class="project-detail">
+              <h4>L'Impact</h4>
+              <div class="impact-stat">100 %</div>
+              <div class="impact-label">Continuité assurée sans interruption de marque.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-item reveal">
+        <div class="project-num">02</div>
+        <div class="project-content">
+          <div class="project-header">
+            <div>
+              <h3 class="project-title">Aghbal</h3>
+              <span class="project-tag">Projet Enactus - Project Initiator & Coordinatrice</span>
+            </div>
+            <span class="project-tag">CA vérifié</span>
+          </div>
+          <p class="project-hook">Un stock de caroube, personne pour le transformer en revenu.</p>
+          <div class="project-details">
+            <div class="project-detail">
+              <h4>Le Défi</h4>
+              <p>Monétisation de la caroube locale sous forme d'alternative saine au sucre (réduction des risques de diabète).</p>
+            </div>
+            <div class="project-detail">
+              <h4>L'Exécution</h4>
+              <p>Coordination d'équipe, stratégie omnicanale (épiceries + réseaux sociaux) et préparation aux compétitions de pitch.</p>
+            </div>
+            <div class="project-detail">
+              <h4>L'Impact</h4>
+              <div class="impact-stat">7 000+ DH</div>
+              <div class="impact-label">Chiffre d'affaires généré, sélection à l'Orient Startup Challenge comme meilleur projet de la région et passage à la demi-finale de la compétition nationale d'ENACTUS. </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-item reveal">
+        <div class="project-num">03</div>
+        <div class="project-content">
+          <div class="project-header">
+            <div>
+              <h3 class="project-title">Cire Trudon en Inde</h3>
+              <span class="project-tag">Géopolitique pour manager</span>
+            </div>
+            <span class="project-tag">Soutenu devant jury</span>
+          </div>
+          <p class="project-hook">Faire entrer une bougie française dans un marché verrouillé par les taxes.</p>
+          <div class="project-details">
+            <div class="project-detail">
+              <h4>Le Défi</h4>
+              <p>Positionnement d'une maison de luxe française face à 40 % de droits de douane et 28 % de TVA en Inde.</p>
+            </div>
+            <div class="project-detail">
+              <h4>L'Exécution</h4>
+              <p>Création d'un business case shop-in-shop à Mumbai (Jio World Plaza) avec étude réglementaire, RH et douanière.</p>
+            </div>
+            <div class="project-detail">
+              <h4>L'Impact</h4>
+              <div class="impact-stat">~70 000 €</div>
+              <div class="impact-label">Budget annuel maîtrisé et faisabilité démontrée devant jury.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projet : Agilité Stratégique & Futurs Climatiques (ReluctanceTech) -->
+      <article class="project-item reveal">
+        <div class="project-num">04</div>
+        <div class="project-content">
+          <div class="project-header">
+            <div>
+              <h3 class="project-title">Terres rares & Agilité climatique</h3>
+              <span class="project-tag">Stratégie & Transition Énergétique</span>
+            </div>
+            <span class="project-tag">Soutenu devant jury</span>
+          </div>
+          <p class="project-hook">Rendre la chaîne de valeur éolienne américaine indépendante des terres rares chinoises.</p>
+          <div class="project-details">
+            <div class="project-detail">
+              <h4>Le Défi</h4>
+              <p>La Chine contrôle ~90 % du raffinage mondial de terres rares, exposant la transition énergétique américaine à un risque géopolitique et à d'importantes tensions d'approvisionnement.</p>
+            </div>
+            <div class="project-detail">
+              <h4>L'Exécution</h4>
+              <p>Développement d'une stratégie <i>asset-light</i> basée sur la réluctance (firmware de contrôle sans aimants NdFeB), modélisation PESTEL/SWOT et structuration d'un réseau public-privé (DOE, DoD, OEM).</p>
+            </div>
+            <div class="project-detail">
+              <h4>L'Impact</h4>
+              <div class="impact-stat">100 %</div>
+              <div class="impact-label">Modèle de substitution validé sur 3 scénarios climatiques (2045) et stratégie de levée de capitaux conditionnée par paliers.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Projet : Skan Face -->
+      <article class="project-item reveal">
+        <div class="project-num">05</div>
+        <div class="project-content">
+          <div class="project-header">
+            <div>
+              <h3 class="project-title">Skan Face</h3>
+              <span class="project-tag">Retail Tech & IA - Gestion de projet</span>
+            </div>
+            <span class="project-tag">Soutenu devant jury</span>
+          </div>
+          <p class="project-hook">Un miroir interactif IA qui objective le diagnostic dermatologique en point de vente.</p>
+          <div class="project-details">
+            <div class="project-detail">
+              <h4>Le Défi</h4>
+              <p>Standardiser et fiabiliser les recommandations cosmétiques en magasin physique grâce à la donnée, sans remplacer l'expertise humaine des conseillères de vente.</p>
+            </div>
+            <div class="project-detail">
+              <h4>L'Exécution</h4>
+              <p>Cadrage complet du projet (MOA/COPIL/MOE), budget prévisionnel (CAPEX/OPEX), modélisation WBS/GANTT/PERT et intégration IA (computer vision & recommandation CRM).</p>
+            </div>
+            <div class="project-detail">
+              <h4>L'Impact</h4>
+              <div class="impact-stat">+5 à 20 %</div>
+              <div class="impact-label">D'augmentation du panier moyen estimée, stratégie Made in France (Saint-Gobain) et ROI amorti en moins de 2 mois.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills" id="skills">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Matrice de compétences</div>
+      <h2 class="section-title">Mes piliers d'intervention</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card featured reveal">
+        <span class="skill-tag">Pilier 01</span>
+        <h3 class="skill-title">Stratégie et intelligence de marché</h3>
+        <p class="skill-desc">Études de marché, benchmarks, lecture géopolitique appliquée au business. Chaque analyse débouche sur une décision concrète.</p>
+        <div class="skill-list">
+          <span>Analyse PESTEL</span><span>SWOT</span><span>Business Model Canvas</span><span>Benchmarking</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-tag">Pilier 02</span>
+        <h3 class="skill-title">Storytelling & Pitch</h3>
+        <p class="skill-desc">Scénarisation, répétitions et défense de projets devant des jurys exigeants.</p>
+        <div class="skill-list"><span>Prise de parole</span><span>Storytelling</span></div>
+      </div>
+      <div class="skill-card reveal">
+        <span class="skill-tag">Pilier 03</span>
+        <h3 class="skill-title">Gestion de projet</h3>
+        <p class="skill-desc">Reprise en main dans l'urgence, structuration MOA/MOE et rigueur opérationnelle.</p>
+        <div class="skill-list"><span>WBS/GANTT</span><span>Gestion de crise</span></div>
+      </div>
+      <div class="skill-card featured reveal">
+        <span class="skill-tag">Pilier 04</span>
+        <h3 class="skill-title">Innovation & Retail Tech</h3>
+        <p class="skill-desc">Cadrage de solutions IA (vision par ordinateur, algorithmes de recommandation), parcours client phygital et conformité RGPD.</p>
+        <div class="skill-list">
+          <span>Intelligence Artificielle</span><span>Parcours Phygital</span><span>Cahier des charges UX/UI</span><span>Conformité RGPD</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATIONS -->
+<section class="skills" id="education" style="background: var(--bg);">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Parcours académique</div>
+      <h2 class="section-title">Formations & Diplômes</h2>
+    </div>
+
+    <div class="project-list">
+      <article class="project-item reveal" style="grid-template-columns: 140px 1fr;">
+        <div class="project-num" style="font-size: 1.1rem; font-style: normal; font-family: var(--serif); background: var(--accent); color: var(--bg);">2025 - 2027</div>
+        <div class="project-content" style="padding: 28px 36px;">
+          <div class="project-header" style="margin-bottom: 8px;">
+            <div>
+              <h3 class="project-title" style="font-size: 1.3rem;">MSc Business Développement & Marketing Digital</h3>
+              <span class="project-tag">EDC Paris Business School - Paris, France</span>
+            </div>
+            <span class="project-tag" style="color: var(--accent); border-color: var(--accent);">Alternance dès Sept. 2026</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--ink-light); margin: 0;">Rythme : 3 semaines en entreprise / 1 semaine en formation. Spécialisation stratégie de croissance, marketing digital et gestion de projets complexes.</p>
+        </div>
+      </article>
+
+      <article class="project-item reveal" style="grid-template-columns: 140px 1fr;">
+        <div class="project-num" style="font-size: 1.1rem; font-style: normal; font-family: var(--serif); background: var(--accent); color: var(--bg);">2024 - 2025</div>
+        <div class="project-content" style="padding: 28px 36px;">
+          <div class="project-header" style="margin-bottom: 8px;">
+            <div>
+              <h3 class="project-title" style="font-size: 1.3rem;">Licence d'Excellence Marketing Management Digital & E-Commerce</h3>
+              <span class="project-tag">Souissi Business School, Université Mohammed V - Rabat, Maroc</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--ink-light); margin: 0;">Acquisition de solides fondamentaux en performance digitale, mécanique e-commerce et stratégie commerciale omnicanale.</p>
+        </div>
+      </article>
+
+      <article class="project-item reveal" style="grid-template-columns: 140px 1fr;">
+        <div class="project-num" style="font-size: 1.1rem; font-style: normal; font-family: var(--serif); background: var(--accent); color: var(--bg);">2022 - 2024</div>
+        <div class="project-content" style="padding: 28px 36px;">
+          <div class="project-header" style="margin-bottom: 8px;">
+            <div>
+              <h3 class="project-title" style="font-size: 1.3rem;">DUT Marketing & E-Commerce</h3>
+              <span class="project-tag">École Supérieure de Technologie - Oujda, Maroc</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--ink-light); margin: 0;">Formation initiale axée sur la gestion de projet, les études de marché, la négociation et la création de contenu.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EXPÉRIENCE -->
+<section class="skills" id="experience">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Expériences professionnelles</div>
+      <h2 class="section-title">Ce que le terrain m'a appris.</h2>
+    </div>
+
+    <div class="project-list">
+      <article class="project-item reveal" style="grid-template-columns: 140px 1fr;">
+        <div class="project-num" style="font-size: 1.1rem; font-style: normal; font-family: var(--serif); background: var(--accent); color: var(--bg);">2024 - 2025</div>
+        <div class="project-content" style="padding: 28px 36px;">
+          <div class="project-header" style="margin-bottom: 8px;">
+            <div>
+              <h3 class="project-title" style="font-size: 1.3rem;">Assistante marketing et commercial, stage de fin d'études</h3>
+              <span class="project-tag">Equatorial Coca-Cola Bottling Company</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--ink-light); margin: 0;">J'ai piloté le reporting hebdomadaire de KPI sur un portefeuille de 15 SKUs via SAP Logistique, en centralisant plusieurs sources de données dans un tableau de bord décisionnel unique. J'ai coordonné l'exécution de 4 campagnes promotionnelles, du déploiement des matériaux POS en point de vente à la synchronisation de 3 départements internes, et identifié 2 SKUs sous-performants grâce à l'analyse des tendances de sell-out.</p>
+        </div>
+      </article>
+
+      <article class="project-item reveal" style="grid-template-columns: 140px 1fr;">
+        <div class="project-num" style="font-size: 1.1rem; font-style: normal; font-family: var(--serif); background: var(--accent); color: var(--bg);">2023 - 2024</div>
+        <div class="project-content" style="padding: 28px 36px;">
+          <div class="project-header" style="margin-bottom: 8px;">
+            <div>
+              <h3 class="project-title" style="font-size: 1.3rem;">Ingénieure commerciale et communication digitale, stage d'initiation</h3>
+              <span class="project-tag">Soft Cactus, agence de communication digitale</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--ink-light); margin: 0;">J'ai constitué une base de 145 prospects B2B et B2C qualifiés dans le secteur de la santé, avec un taux de conversion de 15 % en premier rendez-vous dès la première campagne d'outreach, validant le cadre de prospection mis en place. J'ai aussi planifié et coordonné le contenu éditorial des réseaux sociaux via un calendrier de publication, en suivant l'engagement par post pour orienter les cycles suivants.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <div class="about-card-label">Fiche profil</div>
+        <div class="about-card-name">Houda ES-SEYOURI</div>
+        <div class="about-card-role">Business Développement Marketing Digital, Stratégie & Terrain</div>
+        <div class="about-card-bio">
+          MSc Business Développement & Digital Marketing - EDC Paris Business School. Recherche d'alternance à partir de septembre 2026.
+        </div>
+      </div>
+
+      <div class="about-body reveal">
+        <h3>À propos</h3>
+        <p>Mon fil rouge : <strong>comprendre vite un sujet complexe qui n'est pas le mien, et le rendre présentable, chiffré, défendable.</strong></p>
+        <div class="about-hobbies">
+          <h4>Hors cadre - Loisirs & Langues</h4>
+          <div class="hobby-grid">
+            <div class="hobby-item"><span>🇫🇷</span> Français (Bilingue)</div>
+            <div class="hobby-item"><span>🇺🇸</span> Anglais (C1)</div>
+            <div class="hobby-item"><span>🇲🇦</span> Arabe (Maternelle)</div>
+            <div class="hobby-item"><span>🇨🇳</span> Mandarin (HSK 2)</div>
+            <div class="hobby-item"><span>🌈</span> Dessiner à l'acrylique surtout</div>
+            <div class="hobby-item"><span>🏕️</span> Faire des voyages Solo</div>
+            <div class="hobby-item"><span>🐎</span> Équitation</div>
+            <div class="hobby-item"><span>🎸</span> Guitare</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-inner reveal">
+    <div class="cta-eyebrow">Contact</div>
+    <h2>Un dossier à défendre ou un projet à structurer ?</h2>
+    <p>Je ne promets pas de la passion. Je promets de repartir de ce qui existe déjà, même bancal, et de le rendre solide.</p>
+    <a href="mailto:houda.syouri@gmail.com" class="cta-button">Envoyer le dossier →</a>
+    <div class="cta-links">
+      <a href="mailto:houda.syouri@gmail.com">houda.syouri@gmail.com</a>
+      <a href="tel:+33776200689">+33776200689</a>
+    </div>
+  </div>
+</section>
+
+<footer>Houda ES-SEYOURI - Portfolio 2026</footer>
+
+<script>
+  const revealElements = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  revealElements.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
